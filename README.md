@@ -1,5 +1,7 @@
 ## Overview 
 This tutorial provides sample MQTT protocol handler that provides a simple mqtt server functionality on which sensors can publish data on. 
+MQTT Protocol Handler implements a publish protocol. When publisher publishes a message on mqtt  topics, it gets published to message broker on device data topics.
+
 
 ## Build
 

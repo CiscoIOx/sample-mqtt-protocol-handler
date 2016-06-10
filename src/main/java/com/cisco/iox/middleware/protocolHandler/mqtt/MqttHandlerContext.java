@@ -1,6 +1,5 @@
 package com.cisco.iox.middleware.protocolHandler.mqtt;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

@@ -38,7 +38,7 @@ public class MqttProtocolHandler extends AbstractDeviceProtocolHandler {
 	/**
 	 * Name of the protocol Handler
 	 */
-	protected static final String PROTOCOLHANDLER_MQTT = "custom:service:protocolHandler:mqtt-broker";
+	protected static final String PROTOCOLHANDLER_MQTT = "urn:custom:service:protocolHandler:mqtt-broker";
 
 	private NettyAcceptor nettyAcceptor;
 

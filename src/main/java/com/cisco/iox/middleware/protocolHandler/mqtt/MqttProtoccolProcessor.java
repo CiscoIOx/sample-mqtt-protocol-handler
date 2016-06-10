@@ -114,30 +114,18 @@ public class MqttProtoccolProcessor {
 		final String topic = msg.getTopicName();
 		// check if the topic can be wrote
 		String user = (String) session.getAttribute(NettyChannel.ATTR_KEY_USERNAME);
-		// TODO authentication
-
 		PublishEvent.onPublish(clientID, msg);
-		/*
-		 * if (m_authorizator.canWrite(topic, user, clientID)) {
-		 * 
-		 * m_interceptor.notifyTopicPublished(msg, clientID); } else {
-		 * LOG.debug("topic {} doesn't have write credentials", topic); }
-		 */
-
 	}
 
 	public void processPubRec(NettyChannel nettyChannel, PubRecMessage msg) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void processPubComp(NettyChannel nettyChannel, PubCompMessage msg) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void processPubRel(NettyChannel nettyChannel, PubRelMessage msg) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -154,10 +142,6 @@ public class MqttProtoccolProcessor {
 	}
 
 	public void processPubAck(ServerChannel session, PubAckMessage msg) {
-		String clientID = (String) session.getAttribute(NettyChannel.ATTR_KEY_CLIENTID);
-		int messageID = msg.getMessageID();
-		// Remove the message from message store
-		// m_messagesStore.removeMessageInSession(clientID, messageID);
 	}
 
 }

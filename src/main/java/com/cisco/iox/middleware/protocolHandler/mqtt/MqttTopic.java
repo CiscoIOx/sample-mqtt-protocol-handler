@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.cisco.iox.middleware.dataschema.DataSchema;
 import com.cisco.iox.middleware.dataschema.Field;
-import com.cisco.iox.middleware.device.Device;
-import com.cisco.iox.middleware.devicetype.DeviceType;
 import com.cisco.iox.middleware.devicetype.Sensor;
 import com.cisco.iox.middleware.parsers.Expression;
 import com.cisco.iox.middleware.parsers.PayloadParser;

@@ -1,5 +1,5 @@
 {
-	"name": "custom:service:protocolHandler:mqtt-broker",
+	"name": "urn:custom:service:protocolHandler:mqtt-broker",
 	"useApplicationClassLoader": true,
 	"className": "com.cisco.iox.middleware.protocolHandler.mqtt.MqttProtocolHandler",
 	"configuration": 
