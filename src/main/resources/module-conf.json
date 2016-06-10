@@ -1,0 +1,10 @@
+{
+	"name": "custom:service:protocolHandler:mqtt-broker",
+	"useApplicationClassLoader": true,
+	"className": "com.cisco.iox.middleware.protocolHandler.mqtt.MqttProtocolHandler",
+	"configuration": 
+	{
+		"ip":"0.0.0.0",
+		"port": 1883
+	}
+}

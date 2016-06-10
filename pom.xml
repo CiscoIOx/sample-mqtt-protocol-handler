@@ -1,0 +1,135 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>iox-middleware</groupId>
+	<artifactId>mqtt-protocol-handler</artifactId>
+	<version>1.0</version>
+	<name>mqtt-protocol-handler</name>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptors>
+						<descriptor>package.xml</descriptor>
+					</descriptors>
+
+				</configuration>
+				<executions>
+					<execution>
+						<id>distro</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+
+		<dependency>
+			<groupId>io.moquette</groupId>
+			<artifactId>moquette-parser-commons</artifactId>
+			<version>0.8</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>io.moquette</groupId>
+			<artifactId>moquette-netty-parser</artifactId>
+			<version>0.8</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>netty-buffer</artifactId>
+					<groupId>io.netty</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>netty-handler</artifactId>
+					<groupId>io.netty</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>netty-transport</artifactId>
+					<groupId>io.netty</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>netty-common</artifactId>
+					<groupId>io.netty</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Middleware dependencies -->
+		<dependency>
+			<groupId>iox-middleware</groupId>
+			<artifactId>common</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>iox-middleware</groupId>
+			<artifactId>mlib-dsa</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>iox-middleware</groupId>
+			<artifactId>protocol-plugin-sdk</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+
+		<!-- optional. Needed if using payload parsers -->
+		<dependency>
+			<groupId>iox-middleware</groupId>
+			<artifactId>payload-parsers</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+
+		
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>bms-artifactory</id>
+			<name>bms-artifactory-releases</name>
+			<url>http://engci-maven.cisco.com/artifactory/iox-middleware-release</url>
+		</repository>
+		<repository>
+			<id>bms-artifactory-blr</id>
+			<name>bms-artifactory-blr-releases</name>
+			<url>http://engci-maven.cisco.com/artifactory/iox-middleware-release</url>
+		</repository>
+		<repository>
+			<id>bintray</id>
+			<url>http://dl.bintray.com/andsel/maven/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+</project>

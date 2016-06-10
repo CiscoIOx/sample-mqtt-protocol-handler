@@ -1,0 +1,49 @@
+descriptor-schema-version: "2.1"
+ 
+info:
+  name: Custom MQTT Protocol Handler
+  description: Acts as a mqtt broker and handles incoming data on various topics
+  version: "1.0"
+  author-link: "http://www.cisco.com"
+  author-name: "Cisco Systems"
+
+service-bundle:
+  provides: [{id: "urn:cisco:custom:service:protocolHandler:mqtt", api-version: 1,version: "1", port-mapping: ["eth0:tcp:1883"]}]
+ 
+app:
+  type: paas
+  
+  depends-on:
+    services:
+      -
+        min-api-version: 1
+        required: true
+        id: "urn:cisco:system:service:provisioning"
+        label: mw
+      -
+        id: "urn:cisco:system:service:message-broker"
+        min-api-version: 1
+        required: true
+        label: message_broker
+        
+  resources:
+    profile: custom
+    cpu: "20"
+    disk: "50"
+    memory: "100"
+  
+    network:
+     -
+       interface-name: eth0
+       ports:
+         tcp:
+           - 1883
+
+  # Specify runtime and startup
+  startup:
+    runtime: java-se-embedded-cp3
+    runtime-version: 1.8 
+    runtime-options:
+      classpath: ".:$CAF_APP_PATH/lib/*:$CAF_APP_PATH/resources/:$CAF_APP_PATH/lib/third-party/*"
+      java-options: -Xss256k -Xms32M -Xmx32m  -Djava.util.logging.config.file=$CAF_APP_PATH/resources/logging.properties
+    target: com.cisco.iox.middleware.Server
